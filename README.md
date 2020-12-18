@@ -1,1 +1,1 @@
-# Eye-with-legs
+# Eye with legs
