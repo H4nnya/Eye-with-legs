@@ -1,2 +1,2 @@
 # Sprites de animação do personagem.
-Podem ser usados no ou modificados.
+Podem ser usados ou modificados.
