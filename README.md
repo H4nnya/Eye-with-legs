@@ -1,1 +1,2 @@
-# Eye with legs
+# Eye legs
+Ainda falta alguns ajustes no codigo...
