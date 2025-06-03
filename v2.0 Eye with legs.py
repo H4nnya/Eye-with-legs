@@ -7,7 +7,7 @@
 import pygame
 pygame.init()
 
-screen = pygame.display.set_mode((1500, 800))
+screen = pygame.display.set_mode((1280, 700))
 pygame.display.set_caption('Eye with legs')
 x = 100
 y = 510
@@ -17,23 +17,23 @@ open_screen = right = True
 
 # Sprites do jogador
 # -Direita
-player_R0 = pygame.image.load('player_sprite/player_R0.png')
-player_R1 = pygame.image.load('player_sprite/player_R1.png')
-player_R2 = pygame.image.load('player_sprite/player_R2.png')
-player_R3 = pygame.image.load('player_sprite/player_R3.png')
-player_R4 = pygame.image.load('player_sprite/player_R4.png')
-player_R5 = pygame.image.load('player_sprite/player_R5.png')
-player_R6 = pygame.image.load('player_sprite/player_R6.png')
+player_R0 = pygame.image.load('player_spriter/player_R0.png')
+player_R1 = pygame.image.load('player_spriter/player_R1.png')
+player_R2 = pygame.image.load('player_spriter/player_R2.png')
+player_R3 = pygame.image.load('player_spriter/player_R3.png')
+player_R4 = pygame.image.load('player_spriter/player_R4.png')
+player_R5 = pygame.image.load('player_spriter/player_R5.png')
+player_R6 = pygame.image.load('player_spriter/player_R6.png')
 rond = 0
 
 # -Esquerda
-player_L0 = pygame.image.load('player_sprite/player_L0.png')
-player_L1 = pygame.image.load('player_sprite/player_L1.png')
-player_L2 = pygame.image.load('player_sprite/player_L2.png')
-player_L3 = pygame.image.load('player_sprite/player_L3.png')
-player_L4 = pygame.image.load('player_sprite/player_L4.png')
-player_L5 = pygame.image.load('player_sprite/player_L5.png')
-player_L6 = pygame.image.load('player_sprite/player_L6.png')
+player_L0 = pygame.image.load('player_spriter/player_L0.png')
+player_L1 = pygame.image.load('player_spriter/player_L1.png')
+player_L2 = pygame.image.load('player_spriter/player_L2.png')
+player_L3 = pygame.image.load('player_spriter/player_L3.png')
+player_L4 = pygame.image.load('player_spriter/player_L4.png')
+player_L5 = pygame.image.load('player_spriter/player_L5.png')
+player_L6 = pygame.image.load('player_spriter/player_L6.png')
 lond = 0
 
 while open_screen:
@@ -113,7 +113,7 @@ while open_screen:
         rond = 0
 
     # colisão do jogador
-    if x > 1450:
+    if x > 1200:
         x -= speed
     if x < 50:
         x += speed
