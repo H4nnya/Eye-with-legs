@@ -1,5 +1,5 @@
 """
-    VERSÃO 2.0
+    VERSÃO 2.1
     - Animação de movimentos
     - colisão
 """
