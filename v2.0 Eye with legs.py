@@ -16,25 +16,12 @@ left = False
 open_screen = right = True
 
 # Sprites do jogador
-# -Direita
-player_R0 = pygame.image.load('player_spriter/player_R0.png')
-player_R1 = pygame.image.load('player_spriter/player_R1.png')
-player_R2 = pygame.image.load('player_spriter/player_R2.png')
-player_R3 = pygame.image.load('player_spriter/player_R3.png')
-player_R4 = pygame.image.load('player_spriter/player_R4.png')
-player_R5 = pygame.image.load('player_spriter/player_R5.png')
-player_R6 = pygame.image.load('player_spriter/player_R6.png')
-rond = 0
+def player_spriter(image, posx, posy):
+    player = pygame.image.load(f'player_spriter/player_{image}.png')
+    return screen.blit(player, (posx - 100, posy - 100))
 
-# -Esquerda
-player_L0 = pygame.image.load('player_spriter/player_L0.png')
-player_L1 = pygame.image.load('player_spriter/player_L1.png')
-player_L2 = pygame.image.load('player_spriter/player_L2.png')
-player_L3 = pygame.image.load('player_spriter/player_L3.png')
-player_L4 = pygame.image.load('player_spriter/player_L4.png')
-player_L5 = pygame.image.load('player_spriter/player_L5.png')
-player_L6 = pygame.image.load('player_spriter/player_L6.png')
-lond = 0
+
+rond = lond = 0
 
 while open_screen:
     pygame.time.delay(50)
@@ -48,33 +35,33 @@ while open_screen:
     # movimentação e animação
     # -Direita
     if command[pygame.K_d] and command[pygame.K_a] == 0 and lond == 0:
-        screen.blit(player_R1, (x - 100, y - 100))
+        player_spriter('R1', x, y)
         x += speed
         lond = 1
         right = True
         left = False
     elif command[pygame.K_d] and lond == 1:
-        screen.blit(player_R2, (x - 100, y - 100))
+        player_spriter('R2', x, y)
         x += speed
         lond = 2
     elif command[pygame.K_d] and lond == 2:
-        screen.blit(player_R3, (x - 100, y - 100))
+        player_spriter('R3', x, y)
         x += speed
         lond = 3
     elif command[pygame.K_d] and lond == 3:
-        screen.blit(player_R4, (x - 100, y - 100))
+        player_spriter('R4', x, y)
         x += speed
         lond = 4
     elif command[pygame.K_d] and lond == 4:
-        screen.blit(player_R5, (x - 100, y - 100))
+        player_spriter('R5', x, y)
         x += speed
         lond = 5
     elif command[pygame.K_d] and lond == 5:
-        screen.blit(player_R6, (x - 100, y - 100))
+        player_spriter('R6', x, y)
         x += speed
         lond = 1
     elif command[pygame.K_d] == 0 and right:
-        screen.blit(player_R0, (x - 100, y - 100))
+        player_spriter('R0', x, y) #screen.blit(player_R0, (x - 100, y - 100))
         lond = 0
     else:
         lond = 0
@@ -83,31 +70,31 @@ while open_screen:
     if command[pygame.K_a] and command[pygame.K_d] == 0 and rond == 0:
         right = False
         left = True
-        screen.blit(player_L1, (x - 100, y - 100))
+        player_spriter('L1', x, y)
         x -= speed
         rond = 1
     elif command[pygame.K_a] and rond == 1:
-        screen.blit(player_L2, (x - 100, y - 100))
+        player_spriter('L2', x, y)
         x -= speed
         rond = 2
     elif command[pygame.K_a] and rond == 2:
-        screen.blit(player_L3, (x - 100, y - 100))
+        player_spriter('L3', x, y)
         x -= speed
         rond = 3
     elif command[pygame.K_a] and rond == 3:
-        screen.blit(player_L4, (x - 100, y - 100))
+        player_spriter('L4', x, y)
         x -= speed
         rond = 4
     elif command[pygame.K_a] and rond == 4:
-        screen.blit(player_L5, (x - 100, y - 100))
+        player_spriter('L5', x, y)
         x -= speed
         rond = 5
     elif command[pygame.K_a] and rond == 5:
-        screen.blit(player_L6, (x - 100, y - 100))
+        player_spriter('L6', x, y)
         x -= speed
         rond = 1
     elif command[pygame.K_a] == 0 and left:
-        screen.blit(player_L0, (x - 100, y - 100))
+        player_spriter('L0', x, y)
         rond = 0
     else:
         rond = 0
