@@ -8,7 +8,7 @@
 import pygame
 pygame.init()
 
-screen = pygame.display.set_mode((1500, 800))
+screen = pygame.display.set_mode((1200, 700))
 pygame.display.set_caption('Camp test')
 x = 500
 y = 490
@@ -17,8 +17,8 @@ right = True
 left = False
 open_screen = True
 
-player_R0 = pygame.image.load('player_sprite/player_R0.png')
-player_L0 = pygame.image.load('player_sprite/player_L0.png')
+player_R0 = pygame.image.load('player_spriter/player_R0.png')
+player_L0 = pygame.image.load('player_spriter/player_L0.png')
 
 while open_screen:
     pygame.time.delay(50)
