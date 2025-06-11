@@ -1,4 +1,10 @@
 import pygame
+'''
+--NOTA DE UPDATE
+-Menu de jogo
+-correr
+-pulo
+'''
 
 pygame.init()
 screen = pygame.display.set_mode([1200, 650])
