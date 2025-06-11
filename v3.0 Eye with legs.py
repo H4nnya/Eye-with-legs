@@ -59,6 +59,14 @@ while True:
                         pygame.draw.polygon(screen, (173, 173, 173), ((0, 600), (0, 800), (1500, 800), (1500, 600)), 0)
                         pygame.draw.polygon(screen, (255, 204, 0), ((0, 0), (0, 600), (1500, 600), (1500, 0)), 0)
 
+                        # colisão do jogador
+                        if x > 1150:
+                            x -= speed
+                        elif x < 50:
+                            x += speed
+                        if y > 510:
+                            y -= 10
+
                         # movimentação e animação
                         # correr
                         if command[pygame.K_z]:
@@ -145,17 +153,10 @@ while True:
                             jump = False
                             y += 7
 
-                        # colisão do jogador
-                        if x > 1200:
-                            x -= speed
-                        elif x < 50:
-                            x += speed
-                        elif y > 510:
-                            y -= 7
 
 
 
                         for event in pygame.event.get():
                             if event.type == pygame.QUIT:
                                 pygame.quit()
-
+                                
