@@ -1,17 +1,11 @@
 import pygame
-'''
---NOTA DE UPDATE
--Menu de jogo
--correr
--pulo
-'''
 
 pygame.init()
 screen = pygame.display.set_mode([1200, 650])
 pygame.display.set_caption('MENU')
 
-def spriter(image, posx, posy):
-    player = pygame.image.load(f'spriter/{image}.png')
+def spriter(folder, image, posx, posy):
+    player = pygame.image.load(f'{folder}/{image}.png')
     return screen.blit(player, (posx, posy))
 
 def verificar(pos, area):
@@ -29,7 +23,7 @@ while True:
     pos_mouse = pygame.mouse.get_pos()
 
 
-    spriter('background', 0, 0)
+    spriter('spriter', 'background', 0, 0)
     pygame.draw.circle(screen, (0, 250, 50), pos_mouse, 10)
 
     pygame.display.update()
@@ -51,7 +45,7 @@ while True:
 
 
                     # Sprites do jogador
-                    def player_spriter(image, posx, posy):
+                    def spriter(image, posx, posy):
                         player = pygame.image.load(f'player_spriter/player_{image}.png')
                         return screen.blit(player, (posx - 100, posy - 100))
 
@@ -74,33 +68,33 @@ while True:
 
                         # Direita
                         if command[pygame.K_d] and command[pygame.K_a] == 0 and lond == 0:
-                            player_spriter('R1', x, y)
+                            spriter('R1', x, y)
                             x += speed
                             lond = 1
                             right = True
                             left = False
                         elif command[pygame.K_d] and lond == 1:
-                            player_spriter('R2', x, y)
+                            spriter('R2', x, y)
                             x += speed
                             lond = 2
                         elif command[pygame.K_d] and lond == 2:
-                            player_spriter('R3', x, y)
+                            spriter('R3', x, y)
                             x += speed
                             lond = 3
                         elif command[pygame.K_d] and lond == 3:
-                            player_spriter('R4', x, y)
+                            spriter('R4', x, y)
                             x += speed
                             lond = 4
                         elif command[pygame.K_d] and lond == 4:
-                            player_spriter('R5', x, y)
+                            spriter('R5', x, y)
                             x += speed
                             lond = 5
                         elif command[pygame.K_d] and lond == 5:
-                            player_spriter('R6', x, y)
+                            spriter('R6', x, y)
                             x += speed
                             lond = 1
                         elif command[pygame.K_d] == 0 and right:
-                            player_spriter('R0', x, y)  # screen.blit(player_R0, (x - 100, y - 100))
+                            spriter('R0', x, y)  # screen.blit(player_R0, (x - 100, y - 100))
                             lond = 0
                         else:
                             lond = 0
@@ -109,31 +103,31 @@ while True:
                         if command[pygame.K_a] and command[pygame.K_d] == 0 and rond == 0:
                             right = False
                             left = True
-                            player_spriter('L1', x, y)
+                            spriter('L1', x, y)
                             x -= speed
                             rond = 1
                         elif command[pygame.K_a] and rond == 1:
-                            player_spriter('L2', x, y)
+                            spriter('L2', x, y)
                             x -= speed
                             rond = 2
                         elif command[pygame.K_a] and rond == 2:
-                            player_spriter('L3', x, y)
+                            spriter('L3', x, y)
                             x -= speed
                             rond = 3
                         elif command[pygame.K_a] and rond == 3:
-                            player_spriter('L4', x, y)
+                            spriter('L4', x, y)
                             x -= speed
                             rond = 4
                         elif command[pygame.K_a] and rond == 4:
-                            player_spriter('L5', x, y)
+                            spriter('L5', x, y)
                             x -= speed
                             rond = 5
                         elif command[pygame.K_a] and rond == 5:
-                            player_spriter('L6', x, y)
+                            spriter('L6', x, y)
                             x -= speed
                             rond = 1
                         elif command[pygame.K_a] == 0 and left:
-                            player_spriter('L0', x, y)
+                            spriter('L0', x, y)
                             rond = 0
                         else:
                             rond = 0
