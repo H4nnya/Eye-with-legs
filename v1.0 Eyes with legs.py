@@ -21,7 +21,7 @@ player_R0 = pygame.image.load('player_spriter/player_R0.png')
 player_L0 = pygame.image.load('player_spriter/player_L0.png')
 
 while open_screen:
-    pygame.time.Clock().tick(60)
+    pygame.time.Clock().tick(30)
     command = pygame.key.get_pressed()
 
     screen.fill(0)
