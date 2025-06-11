@@ -11,17 +11,18 @@ pygame.init()
 screen = pygame.display.set_mode((1200, 700))
 pygame.display.set_caption('Camp test')
 x = 500
-y = 490
+y = 520
 right = True
 left = False
 speed = 20
 open_screen = True
 
-player_R0 = pygame.image.load('player_spriter/player_R0.png')
-player_L0 = pygame.image.load('player_spriter/player_L0.png')
+def player_spriter(image, posx, posy):
+    player = pygame.image.load(f'player_spriter/player_{image}.png')
+    return screen.blit(player, (posx - 100, posy - 100))
 
 while open_screen:
-    pygame.time.Clock().tick(30)
+    pygame.time.Clock().tick(60)
     command = pygame.key.get_pressed()
 
     screen.fill(0)
@@ -33,17 +34,21 @@ while open_screen:
     # movimentação
     # direita
     if command[pygame.K_d]:
-        screen.blit(player_R0, (x - 50, y - 85))
+        player_spriter('R1', x, y)
         x += speed
+        right = True
+        left = False
     elif command[pygame.K_d] == 0 and right:
-        screen.blit(player_R0, (x - 50, y - 85))
+        player_spriter('R0', x, y)
 
     # esquerda
     if command[pygame.K_a] and command[pygame.K_d] == 0:
-        screen.blit(player_L0, (x - 40, y - 85))
+        player_spriter('L1', x, y)
         x -= speed
+        right = False
+        left = True
     elif command[pygame.K_a] == 0 and left:
-        screen.blit(player_L0, (x - 50, y - 85))
+        player_spriter('L0', x, y)
 
     pygame.display.update()
 
