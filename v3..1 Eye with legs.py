@@ -4,6 +4,7 @@ pygame.init()
 screen = pygame.display.set_mode([1200, 650])
 pygame.display.set_caption('MENU')
 
+# acesso as pastas de image
 def spriter(folder, image, posx, posy):
     player = pygame.image.load(f'{folder}/{image}.png')
     screen.blit(player, (posx, posy))
