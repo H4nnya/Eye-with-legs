@@ -8,6 +8,11 @@ def spriter(folder, image, posx, posy):
     player = pygame.image.load(f'{folder}/{image}.png')
     return screen.blit(player, (posx, posy))
 
+#movimento
+def move(spriter, lond):
+    player = pygame.image.load(f'player_spriter/player_{spriter}{lond}.png')
+    screen.blit(player, (x, y))
+#menu
 def verificar(pos, area):
     px, py = pos
     x1, y1, x2, y2 = area
@@ -18,10 +23,18 @@ play = (455, 300, 730, 390)
 ppx = ppy = 200
 bpx = bpy = 600
 while True:
+    png = 0
+    side = 'R'
+    move = False
+
+
+    def motion(spriter, lond):
+        player = pygame.image.load(f'player_spriter/player_{spriter}{lond}.png')
+        screen.blit(player, (x, y))
+
     screen.fill(0)
 
     pos_mouse = pygame.mouse.get_pos()
-
 
     spriter('spriter', 'background', 0, 0)
     pygame.draw.circle(screen, (0, 250, 50), pos_mouse, 10)
@@ -38,7 +51,7 @@ while True:
                 if verificar(pos_mouse, play):
                     pygame.display.set_caption('Eye with legs')
                     x = 100
-                    y = 500
+                    y = 420
                     speed = 10
                     left = jump = False
                     open_screen = right = True
@@ -68,92 +81,28 @@ while True:
                             y -= 10
 
                         # movimentação e animação
-                        # correr
-                        if command[pygame.K_z]:
-                            speed = 60
-                        else:
-                            speed = 20
+                        motion(side, png)
 
-                        # Direita
-                        if command[pygame.K_d] and command[pygame.K_a] == 0 and lond == 0:
-                            spriter('R1', x, y)
-                            x += speed
-                            lond = 1
-                            right = True
-                            left = False
-                        elif command[pygame.K_d] and lond == 1:
-                            spriter('R2', x, y)
-                            x += speed
-                            lond = 2
-                        elif command[pygame.K_d] and lond == 2:
-                            spriter('R3', x, y)
-                            x += speed
-                            lond = 3
-                        elif command[pygame.K_d] and lond == 3:
-                            spriter('R4', x, y)
-                            x += speed
-                            lond = 4
-                        elif command[pygame.K_d] and lond == 4:
-                            spriter('R5', x, y)
-                            x += speed
-                            lond = 5
-                        elif command[pygame.K_d] and lond == 5:
-                            spriter('R6', x, y)
-                            x += speed
-                            lond = 1
-                        elif command[pygame.K_d] == 0 and right:
-                            spriter('R0', x, y)  # screen.blit(player_R0, (x - 100, y - 100))
-                            lond = 0
-                        else:
-                            lond = 0
+                        if move and png >= 0:
+                            png += 1
+                        if png == 5:
+                            png = 1
+                        if move == False:
+                            png = 0
 
-                        # Esquerda
-                        if command[pygame.K_a] and command[pygame.K_d] == 0 and rond == 0:
-                            right = False
-                            left = True
-                            spriter('L1', x, y)
+                        if command[pygame.K_d]:
+                            side = 'R'
+                            move = True
+                            x += speed
+                        elif command[pygame.K_a]:
+                            side = 'L'
+                            move = True
                             x -= speed
-                            rond = 1
-                        elif command[pygame.K_a] and rond == 1:
-                            spriter('L2', x, y)
-                            x -= speed
-                            rond = 2
-                        elif command[pygame.K_a] and rond == 2:
-                            spriter('L3', x, y)
-                            x -= speed
-                            rond = 3
-                        elif command[pygame.K_a] and rond == 3:
-                            spriter('L4', x, y)
-                            x -= speed
-                            rond = 4
-                        elif command[pygame.K_a] and rond == 4:
-                            spriter('L5', x, y)
-                            x -= speed
-                            rond = 5
-                        elif command[pygame.K_a] and rond == 5:
-                            spriter('L6', x, y)
-                            x -= speed
-                            rond = 1
-                        elif command[pygame.K_a] == 0 and left:
-                            spriter('L0', x, y)
-                            rond = 0
                         else:
-                            rond = 0
-
-                        # pular
-                        if y <= 400:
-                            jump = False
-                            y += 30
-                        elif command[pygame.K_SPACE] and y >= 500:
-                            jump = True
-
-                        if jump:
-                            y -= 20
-                        else:
-                            jump = False
-                            y += 7
+                            move = False
+                        pygame.display.update()
 
                         for event in pygame.event.get():
                             if event.type == pygame.QUIT:
                                 pygame.quit()
-                                
+
