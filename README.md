@@ -1,6 +1,7 @@
 # Eye with legs
 Faça o Download da pasta e da ultima versão melhorada do jogo.
--- Atualização --
+
+#--Atualização --
 -Otimização na animação e no movimento.
 -Um menu de jogo
 
