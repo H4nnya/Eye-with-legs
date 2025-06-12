@@ -6,12 +6,12 @@ pygame.display.set_caption('MENU')
 
 def spriter(folder, image, posx, posy):
     player = pygame.image.load(f'{folder}/{image}.png')
-    return screen.blit(player, (posx, posy))
+    screen.blit(player, (posx, posy))
 
 #movimento
 def move(spriter, lond):
-    player = pygame.image.load(f'player_spriter/player_{spriter}{lond}.png')
-    screen.blit(player, (x, y))
+    spriter('player_spriter', f'{spriter}{lond}', x, y)
+
 #menu
 def verificar(pos, area):
     px, py = pos
@@ -28,8 +28,8 @@ while True:
     move = False
 
 
-    def motion(spriter, lond):
-        player = pygame.image.load(f'player_spriter/player_{spriter}{lond}.png')
+    def motion(pic, rl):
+        player = pygame.image.load(f'player_spriter/player_{pic}{rl}.png')
         screen.blit(player, (x, y))
 
     screen.fill(0)
@@ -52,7 +52,7 @@ while True:
                     pygame.display.set_caption('Eye with legs')
                     x = 100
                     y = 420
-                    speed = 10
+                    speed = 15
                     left = jump = False
                     open_screen = right = True
 
